@@ -36,6 +36,12 @@ class Auteur {
     }
 
     public function getInfos(){
-        return $this->prénom. $this->nom;
+        return $this->nom. $this->prénom;
     }
 }
+
+/* TEST
+$a1= new auteur("King","Stephen");
+
+echo $a1->getInfos();
+*/
