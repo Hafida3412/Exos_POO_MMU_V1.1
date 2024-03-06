@@ -2,12 +2,12 @@
 
 class Auteur {
     private string $nom;
-    private string $prénom;
+    private string $prenom;
     private array $livres;
     
-    public function __construct(string $nom, string $prénom){
+    public function __construct(string $nom, string $prenom){
         $this->nom = $nom;
-        $this->prénom = $prénom;
+        $this->prenom = $prenom;
         $this->livres = [];
     }
   
@@ -24,14 +24,14 @@ class Auteur {
         return $this;
     }
 
-    public function getPrénom()
+    public function getPrenom()
     {
-        return $this->prénom;
+        return $this->prenom;
     }
 
-    public function setPrénom($prénom)
+    public function setPrenom($prenom)
     {
-        $this->prénom = $prénom;
+        $this->prenom = $prenom;
 
         return $this;
     }
@@ -49,19 +49,28 @@ class Auteur {
         
         return $this;
     }
+
     public function getInfos(){
-        return $this->nom. $this->prénom;
+        return $this->nom. $this->prenom;
     }
+
     public function addLivre(Livre $livre){
         $this->livres[] = $livre;
     }
+
     public function afficherLivres(){
+        $result = "<h1>Livres de $this</h1>";
         foreach($this->livres as $livre){
-    $result = $livre->getTitre. ($livre->getAnnéeParution)
-     .":". $livre->getNbPages. "pages/". $livre->getPrix. " €<br>";
+            $result .= $livre. ($livre->getAnnéeParution())
+            .":". $livre->getNbPages(). "pages/". $livre->getPrix(). " €<br>";
         }
         return $result;
     }
-        }
+
+    public function __toString(){
+        return $this->prenom." ".$this->nom;
+    }
+    }
+        
     
 

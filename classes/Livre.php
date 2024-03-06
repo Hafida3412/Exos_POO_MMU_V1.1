@@ -6,64 +6,64 @@ class Livre{
     
     private string $titre;
     private int $nbPages;
-    private int $annéeParution;
-    private int $prix;
+    private int $anneeParution;
+    private float $prix;
 
     private Auteur $auteur;
     
     public function __construct(string $titre, int $nbPages,
-     int $annéeParution, int $prix, Auteur $auteur){
+     int $anneeParution, float $prix, Auteur $auteur){
         $this->titre = $titre;
         $this->nbPages = $nbPages;
-        $this->annéeParution = $annéeParution;
+        $this->anneeParution = $anneeParution;
         $this->prix = $prix;
         $this->auteur = $auteur;
         $this->auteur->addLivre($this);
      }
 
      
-    public function getTitre()
+    public function getTitre(): string
     {
         return $this->titre;
     }
 
-    public function setTitre($titre)
+    public function setTitre(string $titre)
     {
         $this->titre = $titre;
 
         return $this;
     }
 
-    public function getNbPages()
+    public function getNbPages(): int
     {
         return $this->nbPages;
     }
 
-    public function setNbPages($nbPages)
+    public function setNbPages(int $nbPages)
     {
         $this->nbPages = $nbPages;
 
         return $this;
     }
 
-    public function getAnnéeParution()
+    public function getAnnéeParution(): int
     {
-        return $this->annéeParution;
+        return $this->anneeParution;
     }
 
-    public function setAnnéeParution($annéeParution)
+    public function setAnnéeParution(int $anneeParution)
     {
-        $this->annéeParution = $annéeParution;
+        $this->anneeParution = $anneeParution;
 
         return $this;
     }
 
-    public function getPrix()
+    public function getPrix(): float
     {
         return $this->prix;
     }
 
-    public function setPrix($prix)
+    public function setPrix(float $prix)
     {
         $this->prix = $prix;
 
@@ -85,10 +85,12 @@ class Livre{
 
     public function getInfos()
     {
-        return $this->titre. $this->nbPages. $this->annéeParution . $this->prix . $this->auteur;
+        return $this. $this->nbPages. $this->anneeParution . $this->prix . $this->auteur;
     }
     
-
+    public function __toString(){
+        return $this->titre;
+    }
     
 }
 
